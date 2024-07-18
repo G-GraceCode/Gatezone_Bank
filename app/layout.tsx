@@ -3,14 +3,16 @@ import { Inter, IBM_Plex_Serif} from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
 const ibmPlexSerif = IBM_Plex_Serif({
   subsets: ['latin'],
   weight: ["400", "700"],
   variable: "--font-ibm-plex-serif"
 })
+
 export const metadata: Metadata = {
-  title: "Gatezon Banking",
-  description: "a banking system for everyone WWW",
+  title: "Gatezone Banking",
+  description: "Gatezone is a real banking system for everyone WW",
   icons: {
     icon: "./icons/logo.svg",
   }

@@ -1,8 +1,12 @@
 import React from "react"
+import AuthForm from "@/components/AuthForm"
 
-const SignUp = () => {
+const SignUp = async () => {
+    
     return (
-        <h2>Sign up</h2>
+        <section className="flex flex-center size-full max-sm:px-6">
+         <AuthForm type="sign-up" />
+       </section>
     )
 }
 
