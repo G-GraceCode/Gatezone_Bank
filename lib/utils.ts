@@ -210,7 +210,7 @@ export const authFormSchema =(type: string) => z.object({
     city: type === "sign-in" ? z.string().optional() : z.string().max(50),
     state: type === "sign-in" ? z.string().optional() :  z.string().min(3).max(3),
     postalCode: type === "sign-in" ? z.string().optional() : z.string().min(3).max(6),
-    dataOfBirth: type === "sign-in" ? z.string().optional() : z.string().min(3),
+    dateOfBirth: type === "sign-in" ? z.string().optional() : z.string().min(3),
     ssn: type === "sign-in" ? z.string().optional() : z.string().min(3),
     // username: z.string().min(2, {
     //   message: "Username must be at least 2 characters.",

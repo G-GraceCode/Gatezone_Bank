@@ -21,6 +21,8 @@ import CostumInput from "./CostumInput"
 import {authFormSchema} from "@/lib/utils"
 import { Loader2 } from 'lucide-react';
 import {signUp, signIn} from "@/lib/Actions/user.actions"
+import PlaidLink from  "./PlaidLink"
+
 
 const AuthForm = ({type}: {type: string}) => {
     const [user, setUser] = useState(null)
@@ -50,7 +52,19 @@ const AuthForm = ({type}: {type: string}) => {
             //Sign up with Appwrite & create plaid token in nextjs using server actions & mutations
             
             if(type === "sign-up"){
-                const newUser = await signUp(data);
+                const userData = {
+                    firstName: data.firstName!,
+                    lastName: data.lastName!,
+                    address1: data.address1!,
+                    city: data.city!,
+                    state: data.state!,
+                    postalCode: data.postalCode!,
+                    dateOfBirth: data.dateOfBirth!,
+                    ssn: data.ssn!,
+                    email: data.email,
+                    password: data.password
+                  }
+                const newUser = await signUp(userData);
 
                 setUser(newUser)
             }
@@ -97,9 +111,9 @@ const AuthForm = ({type}: {type: string}) => {
       {
         user ? (
             <div className="flex flex-col gap-4">
-                {/*PlaidLink  */}
+                <PlaidLink user={user} variant = "primary" />
             </div>
-        ) : (
+        ) :  (
            <> <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                {
@@ -150,7 +164,7 @@ const AuthForm = ({type}: {type: string}) => {
                           <div className="flex gap-4">   
                             <CostumInput 
                             control={form.control} 
-                            name="dataOfBirth"
+                            name="dateOfBirth"
                             placeholder="YYYY-MM-DD"
                             label = "Date Of Birth"
                             />
@@ -197,10 +211,10 @@ const AuthForm = ({type}: {type: string}) => {
                     )
                 }
              </p>
-        </footer>
+            </footer>
         </>
-        )
-      }
+         
+         )}
     </section>
   )
 }
