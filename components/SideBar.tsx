@@ -5,6 +5,7 @@ import Image from "next/image"
 import {sidebarLinks} from "@/constants"
 import { usePathname } from "next/navigation"
 import Footer from "./Footer";
+import PlaidLink from "./PlaidLink"
 
 const SideBar = ({user}: SiderbarProps) => {
   const pathname = usePathname();
@@ -25,7 +26,7 @@ const SideBar = ({user}: SiderbarProps) => {
         {sidebarLinks.map((item) => {
             const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`)
             return (
-              <Link href={item.label} key={item.route} className={cn('sidebar-link', {"bg-bank-gradient" : isActive})}>
+              <Link href={item.route} key={item.label} className={cn('sidebar-link', {"bg-bank-gradient" : isActive})}>
                 <div className="relative size-6">
                     <Image 
                     src = {item.imgURL} 
@@ -39,7 +40,8 @@ const SideBar = ({user}: SiderbarProps) => {
             )
   
         })}
-        USER
+        
+       <PlaidLink user={user} />
       </nav>
 
       <Footer user={user} type="mobile" />
