@@ -88,6 +88,8 @@ const AuthForm = ({type}: {type: string}) => {
     <section className='auth-form'>
       <header className="flex flex-col gap-5 md:gap">
       <Link href="/" className="flex mb-12 cursor-pointer items-center gap-2">
+            <h1 className="sidebar-logo     text-black-2">GateZone</h1>
+           
             <Image 
              src="/icons/logo.svg"
              width={24} 
@@ -95,7 +97,6 @@ const AuthForm = ({type}: {type: string}) => {
              alt={"GateZone"}
              className="size-[24px] max-xl:size-14"
              />
-             <h1 className="sidebar-logo">GateZone</h1>
         </Link>
 
         <div className="flex flex-col gap-1 md:gap-3">
