@@ -1401,9 +1401,9 @@ export default PaymentTransferForm;
 </details>
 
 <!-- <details> -->
-<summary><code>Missing from the video (top right on the transaction list page) BankDropdown.tsx</code></summary>
+<!-- <summary><code>Missing from the video (top right on the transaction list page) BankDropdown.tsx</code></summary> -->
 
-<!-- ```typescript -->
+<!-- ```typescript 
 "use client";
 
 import Image from "next/image";
@@ -1489,6 +1489,7 @@ export const BankDropdown = ({
   );
 };
 ```
+  -->
   
 <!-- </details> -->
 
