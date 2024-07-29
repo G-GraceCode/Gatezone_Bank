@@ -38,7 +38,7 @@ If you prefer visual learning, this is the perfect resource for you. Follow our 
 <a href="https://youtu.be/PuOVqP_cjkE?feature=shared" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/1736fca5-a031-4854-8c09-bc110e3bc16d" /></a>
 -->
 ## <a name="introduction">🤖 Introduction</a> 
-Built with Next.js, Horizon is a financial SaaS platform that connects to multiple bank accounts, displays transactions in real-time, allows users to transfer money to other platform users, and manages their finances altogether. 
+Built with Next.js, Gatezone is a financial SaaS platform that connects to multiple bank accounts, displays transactions in real-time, allows users to transfer money to other platform users, and manages their finances altogether. 
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
@@ -1490,7 +1490,7 @@ export const BankDropdown = ({
 };
 ```
   -->
-  
+
 <!-- </details> -->
 
 <details>
