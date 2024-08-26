@@ -10,10 +10,11 @@ import RecentTransaction from "@/components/RecentTransaction"
 
 const Home = async ({searchParams:{id, page}}: SearchParamProps) => {
     const currentPage = Number(page as string) || 1;
-    const getUser = await getLoggedInUser();
-    console.log('getUser', getUser)
+    const loggedIn = await getLoggedInUser();
+    console.log('loggedIn', loggedIn)
 
-    const accounts = await getAccounts({userId: getUser?.$id})
+
+    const accounts = await getAccounts({userId: loggedIn?.$id})
 
     if(!accounts) return;
     const accountsData =  accounts?.data
@@ -32,7 +33,7 @@ const Home = async ({searchParams:{id, page}}: SearchParamProps) => {
                      type="greeting"
                      title="Welcome"
                      subtext="Access and Manager your account & do transaction"
-                     user={`${getUser?.firstName}` || "Guest"}
+                     user={`${loggedIn?.firstName}` || "Guest"}
                     />
                     <TotalBalanceBox
                         accounts={accountsData}
@@ -42,10 +43,9 @@ const Home = async ({searchParams:{id, page}}: SearchParamProps) => {
 
                 </header>
 
-
                 <RecentTransaction 
                     accounts={accountsData}
-                    transactions={account?.transactons}
+                    transactions={account?.transactions}
                     appwriteItemId = {appwriteItemId}
                     page={currentPage}
                 />
@@ -54,7 +54,7 @@ const Home = async ({searchParams:{id, page}}: SearchParamProps) => {
 
             {/* //Recent trasaction */}
                 <RightSidebar
-                    user={getUser}
+                    user={loggedIn}
                     transactions = {account?.transactions}
                     banks={accountsData?.slice(0, 2)}
                 />

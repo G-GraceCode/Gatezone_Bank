@@ -1,7 +1,6 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -13,7 +12,6 @@ import { getBank, getBankByAccountId } from "@/lib/Actions/user.actions";
 import { decryptId } from "@/lib/utils";
 
 import { BankDropdown } from "./BankDropdown";
-import { Button } from "./ui/button";
 import {
   Form,
   FormControl,
@@ -25,6 +23,7 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
+import ButtonSubmit from "./ButtonSubmit"
 
 const formSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -237,15 +236,8 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
         />
 
         <div className="payment-transfer_btn-box">
-          <Button type="submit" className="payment-transfer_btn">
-            {isLoading ? (
-              <>
-                <Loader2 size={20} className="animate-spin" /> &nbsp; Sending...
-              </>
-            ) : (
-              "Transfer Funds"
-            )}
-          </Button>
+          <ButtonSubmit loading={isLoading} />
+          
         </div>
       </form>
     </Form>

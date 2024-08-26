@@ -8,12 +8,12 @@ import { Pagination } from "./Pagination"
 
 const RecentTransaction = ({
     accounts,
-    transactions = [],
+    transactions,
     appwriteItemId ,
     page = 1
 }: RecentTransactionsProps) => {
     const rowsPerPage = 10;
-    const totalPages = Math.ceil(transactions.length / rowsPerPage);
+    const totalPages = Math.ceil(transactions.length === 0 ? 0 : transactions.length / rowsPerPage);
 
     const indexOfLastTransaction = page * rowsPerPage;
     const indexOfFirstTransaction = indexOfLastTransaction - rowsPerPage;

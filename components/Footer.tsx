@@ -2,6 +2,8 @@ import React from "react"
 import Image from "next/image"
 import {useRouter} from "next/navigation"
 import {signOut} from "@/lib/Actions/user.actions"
+import {toastAction} from "@/lib/toast-action"
+
 
 const Footer = ({user, type}: FooterProps) => {
     const router = useRouter()
@@ -9,12 +11,14 @@ const Footer = ({user, type}: FooterProps) => {
     const handleLogOut = async () => {
         const isLogOut = await signOut()
         if(isLogOut) router.push("/sign-in")
+        toastAction({status: "success", message: "logouted successful"})
+        
     }
 
     return(
         <footer className="footer">
             {/* <div className=""> */}
-                  <div className={`${type} === "mobile" ? "footer_name-mobile" : "footer_name"`}>
+                  <div className={`${type} === "mobile" ? "footer_image-mobile" : "footer_image"`}>
                       <span className="text-4xl font-bold text-blue-500">{user?.firstName[0]}</span>
                   </div>
 

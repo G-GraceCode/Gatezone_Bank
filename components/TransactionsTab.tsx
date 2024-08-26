@@ -10,6 +10,9 @@ import {
   } from "@/components/ui/table"
 import { cn, formatAmount, formatDateTime, getTransactionStatus, removeSpecialCharacters } from '@/lib/utils'
 import { transactionCategoryStyles } from '@/constants'
+import Image from "next/image"
+
+
 
 const CategoryBadge = ({category}: CategoryBadgeProps) => {
   const {
@@ -59,7 +62,16 @@ const TransactionsTab = ({transactions}: TransactionTableProps) => {
 
                       <TableCell className="max-w-[250px] pl-2 pr-10">
                         <div className="flex items-center gap-3">
-                          <h3 className="text-14 truncate font-semibold text-[#344054]">{removeSpecialCharacters(t.name)}</h3>
+                          <h3 className="flex gap-2 text-14 truncate font-semibold text-[#344054] items-center">
+                            {
+                              t.image ? (<Image src={t?.image} width={24} height={24} alt="item-bought" className="rounded-lg"/>) : (
+                                <div className={`flex items-center justify-center size-5.5 p-2 rounded-lg bg-blue-200`}>
+                                <span className="text-14 font-bold text-blue-500">{t?.name[0]}</span>
+                            </div>
+                              )
+                            }
+                            
+                            {removeSpecialCharacters(t.name)}</h3>
                         </div>
                       </TableCell>
 
@@ -75,7 +87,7 @@ const TransactionsTab = ({transactions}: TransactionTableProps) => {
                       </TableCell>
 
                       <TableCell className="win-w-32 pr-10 pl-2 capitalize">
-                        {t.channel}
+                        {t.paymentChannel}
                       </TableCell>
 
                       <TableCell className="win-w-32 pr-10 pl-2 max-md:hidden">

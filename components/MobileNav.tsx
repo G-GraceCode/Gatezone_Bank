@@ -29,7 +29,7 @@ const MobileNav = ({user}: MobileNavProps) => {
                 alt="menu"
                 className="cursor-pointer" />
             </SheetTrigger>
-            <SheetContent side='left' className="border-none bg-white">
+            <SheetContent side='left' className="border-none bg-white h-full">
                 <Link href="/" className="mb-12 cursor-pointer flex items-center gap-2">
                     <Image 
                     src="/icons/logo.svg"
@@ -69,8 +69,8 @@ const MobileNav = ({user}: MobileNavProps) => {
                 
                 <Footer user={user} type="mobile" />
             </div>
-        </SheetContent>
-    </Sheet>
+            </SheetContent>
+        </Sheet>
 
     </section>
   )

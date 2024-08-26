@@ -244,7 +244,7 @@
   }
 
   .banktab-item {
-    @apply gap-[18px] border-b-2 flex px-2 sm:px-4 py-2 transition-all;
+    @apply gap-[18px] border-b-2 border-solid flex px-2 sm:px-4 py-2 transition-all;
   }
 
   /* Mobile nav */
@@ -271,7 +271,7 @@
 
   /* Auth */
   .auth-asset {
-    @apply flex h-screen w-full sticky top-0 items-center justify-end bg-sky-1 max-lg:hidden;
+    @apply flex h-screen w-full sticky top-0 items-center justify-center bg-sky-1 max-lg:hidden;
   }
 
   /* Auth Form */
@@ -297,6 +297,11 @@
 
   .form-link {
     @apply text-14 cursor-pointer font-medium text-bankGradient;
+  }
+  
+  /* Setting page */
+  .settings{
+    @apply flex flex-col overflow-y-scroll bg-gray-25 p-8 md:max-h-screen xl:py-12
   }
 
   /* Payment Transfer */
@@ -365,11 +370,11 @@
 
   /* Sidebar */
   .sidebar {
-    @apply sticky left-0 top-0 flex h-screen w-fit flex-col  justify-between border-r border-gray-200 bg-white pt-8 text-white max-md:hidden sm:p-4 xl:p-6 2xl:w-[355px];
+    @apply sticky left-0 top-0 bottom-0 flex h-screen h-full w-fit flex-col  justify-between border-r border-gray-200 bg-white pt-8 text-white max-md:hidden sm:p-2 xl:p-4 /*2xl:w-[355px]*/;
   }
 
   .sidebar-logo {
-    @apply 2xl:text-26 font-ibm-plex-serif text-[26px] font-bold text-black-1 max-xl:hidden;
+    @apply 2xl:text-24 font-ibm-plex-serif text-[24px] font-bold text-black-1 max-xl:hidden;
   }
 
   .sidebar-link {

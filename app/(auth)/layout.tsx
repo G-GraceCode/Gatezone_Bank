@@ -1,4 +1,6 @@
 import Image from "next/image"
+import { Toaster } from 'react-hot-toast';
+
 
 export default function RootLayout({
     children,
@@ -7,17 +9,19 @@ export default function RootLayout({
   }>) {
     return (
      <main className="flex min-h-screen w-full justify-between font-inter"> 
-          <div className="auth-asset"> 
-            <div>
-              <Image
-              src="/icons/auth-image.svg"
-              alt="Auth image"
-              width={500}
-              height={500}
-              />
-            </div>
+        <div className="auth-asset"> 
+          <div>
+            <Image
+            src="/icons/websites.svg"
+            alt="Auth image"
+            width={650}
+            height={650}
+            />
           </div>
-          {children}
+        </div>
+        {children}
+        <Toaster position="top-center"
+          reverseOrder={false} />
      </main>
     )
   }

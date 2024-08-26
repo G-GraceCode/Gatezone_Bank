@@ -7,6 +7,9 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
+import {toastAction} from "@/lib/toast-action"
+
+
 import {
   Form,
   FormControl,
@@ -76,9 +79,11 @@ const AuthForm = ({type}: {type: string}) => {
 
                 if(res) router.push("/")
             }
+            toastAction({status: "success", message: "signed in successfully"})
             
-        } catch(e){
-            console.log(e)
+        } catch(e: any){
+            toastAction({status: "error", message: e.type})
+            console.log("error", e.type, e.response.message)
         }finally{
             setIsLoading(false)
         }
